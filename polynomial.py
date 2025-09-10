@@ -38,8 +38,8 @@ class Add:
         return Int(self.p1.evaluate(x_value).i + self.p2.evaluate(x_value).i)
 
     def simplify(self):
-        p1_s = self.p1.simplify() if hasattr(self.p1, 'simplify') else self.p1
-        p2_s = self.p2.simplify() if hasattr(self.p2, 'simplify') else self.p2
+        p1_s = self.p1.simplify() if hasattr(self.p1, "simplify") else self.p1
+        p2_s = self.p2.simplify() if hasattr(self.p2, "simplify") else self.p2
         # X + 0 -> X, 0 + X -> X
         if isinstance(p1_s, Int) and p1_s.i == 0:
             return p2_s
@@ -69,10 +69,12 @@ class Mul:
         return Int(self.p1.evaluate(x_value).i * self.p2.evaluate(x_value).i)
 
     def simplify(self):
-        p1_s = self.p1.simplify() if hasattr(self.p1, 'simplify') else self.p1
-        p2_s = self.p2.simplify() if hasattr(self.p2, 'simplify') else self.p2
+        p1_s = self.p1.simplify() if hasattr(self.p1, "simplify") else self.p1
+        p2_s = self.p2.simplify() if hasattr(self.p2, "simplify") else self.p2
         # X * 0 -> 0, 0 * X -> 0
-        if (isinstance(p1_s, Int) and p1_s.i == 0) or (isinstance(p2_s, Int) and p2_s.i == 0):
+        if (isinstance(p1_s, Int) and p1_s.i == 0) or (
+            isinstance(p2_s, Int) and p2_s.i == 0
+        ):
             return Int(0)
         # X * 1 -> X
         if isinstance(p1_s, Int) and p1_s.i == 1:
@@ -105,8 +107,8 @@ class Sub:
         return Int(self.p1.evaluate(x_value).i - self.p2.evaluate(x_value).i)
 
     def simplify(self):
-        p1_s = self.p1.simplify() if hasattr(self.p1, 'simplify') else self.p1
-        p2_s = self.p2.simplify() if hasattr(self.p2, 'simplify') else self.p2
+        p1_s = self.p1.simplify() if hasattr(self.p1, "simplify") else self.p1
+        p2_s = self.p2.simplify() if hasattr(self.p2, "simplify") else self.p2
         # X - 0 -> X
         if isinstance(p2_s, Int) and p2_s.i == 0:
             return p1_s
@@ -136,8 +138,8 @@ class Div:
         return Int(self.p1.evaluate(x_value).i // self.p2.evaluate(x_value).i)
 
     def simplify(self):
-        p1_s = self.p1.simplify() if hasattr(self.p1, 'simplify') else self.p1
-        p2_s = self.p2.simplify() if hasattr(self.p2, 'simplify') else self.p2
+        p1_s = self.p1.simplify() if hasattr(self.p1, "simplify") else self.p1
+        p2_s = self.p2.simplify() if hasattr(self.p2, "simplify") else self.p2
         # X / 1 -> X
         if isinstance(p2_s, Int) and p2_s.i == 1:
             return p1_s
@@ -199,4 +201,4 @@ if __name__ == "__main__":
         print("💡 Or run directly: python test_polynomial.py")
 
 
-#test.polynomial 
+# test.polynomial
